@@ -6,7 +6,17 @@ namespace Cronômetro
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Start();
+        }
+        static void Start()
+        {
+            int time = 10;
+            int currenTime = 0;
+            while (currenTime != time)
+            {
+                currenTime++;
+                Console.WriteLine(currenTime);
+            }
         }
     }
 }
