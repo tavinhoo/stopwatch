@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Cronômetro
 {
@@ -6,17 +7,33 @@ namespace Cronômetro
     {
         static void Main(string[] args)
         {
-            Start();
+            Menu();
         }
-        static void Start()
+
+        static void Menu()
         {
-            int time = 10;
-            int currenTime = 0;
-            while (currenTime != time)
+            Console.Clear();
+            Console.WriteLine("S = Segundo");
+            Console.WriteLine("M = Minuto");
+            Console.WriteLine("0 = Sair");
+            Console.WriteLine("Quanto tempo deseja contar?");
+
+        }
+        static void Start(int time)
+        {
+            int currentTime = 0;
+            // faz a contagem de forma totalmente síncrona
+            while (currentTime != time)
             {
-                currenTime++;
-                Console.WriteLine(currenTime);
+                Console.Clear();
+                currentTime++;
+                Console.WriteLine(currentTime);
+                // faz a execução "dormir" por x segundos antes do prox. passo
+                Thread.Sleep(1000);
             }
+            Console.Clear();
+            Console.WriteLine("Stopwatch finished.... returning to the menu");
+            Thread.Sleep(2500);
         }
     }
 }
